@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Electron + Vue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>口袋精灵2</title>
+  <!-- 核心：添加安全的 CSP 策略 -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    script-src 'self'; 
+    style-src 'self' 'unsafe-inline'; 
+    img-src 'self' data:; 
+    font-src 'self' data:; 
+    connect-src 'self';
+    frame-src 'self';
+    object-src 'none';
+  ">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #app {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
+  <!-- 你的页面内容 -->
   <div id="app"></div>
 </body>
 </html>
