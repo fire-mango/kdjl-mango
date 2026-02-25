@@ -21,11 +21,65 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.8.3",
     "@electron-forge/plugin-fuses": "^7.8.3",
     "@electron-forge/publisher-github": "^7.8.3",
+    "@electron-forge/plugin-webpack": "^7.8.3",
     "@electron/fuses": "^1.8.0",
-    "electron": "^37.3.0"
+    "electron": "^37.3.0",
+    "@vue/compiler-sfc": "^3.4.0",
+    "css-loader": "^7.1.0",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "vue-loader": "^17.4.2",
+    "vue-template-compiler": "^2.7.16",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
-    "update-electron-app": "^3.1.1"
+    "update-electron-app": "^3.1.1",
+    "vue": "^3.4.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true
+      },
+      "plugins": [
+        {
+          "name": "@electron-forge/plugin-webpack",
+          "config": {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.js",
+                  "name": "main_window"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "@electron-forge/plugin-auto-unpack-natives",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/plugin-fuses",
+          "config": {
+            "version": "v1",
+            "resetAdHocDarwinSignature": true,
+            "options": {
+              "runAsNode": false,
+              "enableCookieEncryption": true,
+              "enableNodeOptionsEnvironmentVariable": false,
+              "enableNodeCliInspectArguments": false,
+              "enableEmbeddedAsarIntegrityValidation": true,
+              "onlyLoadAppFromAsar": true
+            }
+          }
+        }
+      ]
+    }
   }
 }
