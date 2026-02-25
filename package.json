@@ -1,0 +1,31 @@
+{
+  "name": "kdjl-mango",
+  "version": "1.0.0",
+  "description": "Hello World!",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron-forge start",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "author": "firemangoone",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.3",
+    "@electron-forge/maker-deb": "^7.8.3",
+    "@electron-forge/maker-rpm": "^7.8.3",
+    "@electron-forge/maker-squirrel": "^7.8.3",
+    "@electron-forge/maker-zip": "^7.8.3",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.3",
+    "@electron-forge/plugin-fuses": "^7.8.3",
+    "@electron-forge/publisher-github": "^7.8.3",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^37.3.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
+    "update-electron-app": "^3.1.1"
+  }
+}
